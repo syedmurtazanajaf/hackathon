@@ -18,20 +18,20 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="sticky top-0 z-10 bg-gray-900/90 backdrop-blur-md shadow-2xl shadow-indigo-900/40 border-b border-indigo-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
         
-        <Link to="/dashboard" className="text-2xl font-bold text-indigo-700">
-          PitchCraft <span className="text-sm font-normal text-gray-500">AI Partner</span>
+        <Link to="/dashboard" className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 tracking-wide">
+          PitchCraft <span className="text-sm font-medium text-gray-400">AI Partner</span>
         </Link>
         
         <nav className="flex items-center space-x-4">
-          <span className="text-sm text-gray-600 hidden sm:block">
+          <span className="text-sm text-gray-400 hidden sm:block">
             {currentUser && `Welcome, ${currentUser.email}`}
           </span>
           <button
             onClick={handleLogout}
-            className="px-4 py-2 border border-red-400 text-sm font-medium rounded-md text-red-600 hover:bg-red-50 transition duration-150"
+            className="px-4 py-2 cursor-pointer border border-red-700 text-sm font-medium rounded-lg text-red-400 hover:bg-red-900/30 transition duration-150"
           >
             Logout
           </button>

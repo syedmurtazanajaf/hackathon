@@ -57,18 +57,18 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black font-sans">
       <Header />
       
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-6 border-b pb-2">
+        <h1 className="text-4xl font-extrabold text-white mb-8 border-b border-indigo-700 pb-3 tracking-tight">
           PitchCraft AI: Enter Your Idea
         </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 shadow-xl rounded-xl">
+        <form onSubmit={handleSubmit} className="space-y-8 bg-gray-800 p-8 shadow-2xl shadow-indigo-900/50 rounded-2xl border border-gray-700">
           
           <div>
-            <label htmlFor="ideaName" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="ideaName" className="block text-sm font-semibold text-indigo-300 mb-1">
               Startup/Idea Name (Optional)
             </label>
             <input
@@ -77,13 +77,13 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
               value={ideaName}
               onChange={(e) => setIdeaName(e.target.value)}
               placeholder="e.g., MentorMate"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+              className="block w-full border border-gray-700 bg-gray-900 text-gray-200 rounded-lg shadow-inner p-3 focus:ring-indigo-600 focus:border-indigo-600 transition duration-150"
             />
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-              Startup Description (Idea ko tafseel se samjhao) <span className="text-red-500">*</span>
+            <label htmlFor="description" className="block text-sm font-semibold text-indigo-300 mb-1">
+              Startup Description (Idea ko tafseel se samjhao) <span className="text-red-400">*</span>
             </label>
             <textarea
               id="description"
@@ -92,23 +92,23 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="I want to build a mobile app that connects university students with industry professionals for 1-on-1 career advice and mock interviews."
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block text-white w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
             ></textarea>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-400">
                 Minimum 20 characters. The more detail you give, the better the AI output will be.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="industry" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="industry" className="block text-sm font-semibold text-indigo-300 mb-1">
                 Industry / Sector
               </label>
               <select
                 id="industry"
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
-                className="mt-1 block w-full border border-gray-300 bg-white rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+                className="block w-full border border-gray-700 bg-gray-900 text-gray-200 rounded-lg shadow-inner p-3 focus:ring-indigo-600 focus:border-indigo-600 appearance-none pr-8 transition duration-150"
               >
                 <option>Technology</option>
                 <option>Education</option>
@@ -121,14 +121,14 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
             </div>
 
             <div>
-              <label htmlFor="tone" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="tone" className="block text-sm font-semibold text-indigo-300 mb-1">
                 Pitch Tone (Kaisa lehja chahiye?)
               </label>
               <select
                 id="tone"
                 value={tone}
                 onChange={(e) => setTone(e.target.value)}
-                className="mt-1 block w-full border border-gray-300 bg-white rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+                className="block w-full border border-gray-700 bg-gray-900 text-gray-200 rounded-lg shadow-inner p-3 focus:ring-indigo-600 focus:border-indigo-600 appearance-none pr-8 transition duration-150"
               >
                 <option value="formal">Formal & Professional</option>
                 <option value="fun">Fun & Quirky</option>
@@ -139,7 +139,7 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
           </div>
           
           {error && (
-            <div className="p-3 text-sm font-medium text-red-700 bg-red-100 rounded-lg">
+            <div className="p-4 text-sm font-medium text-red-300 bg-red-900/50 border border-red-700 rounded-xl">
               {error}
             </div>
           )}
@@ -147,11 +147,20 @@ const handleSubmit = async (e) => { // <-- IMPORTANT: Change to async
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex justify-center py-3 px-4 border border-transparent text-lg font-bold rounded-md text-white shadow-lg ${
-              loading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+            className={`w-full flex justify-center items-center py-3 px-4 border border-transparent text-xl font-bold rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.01] ${
+              loading 
+                ? 'bg-indigo-900/70 text-gray-500 cursor-not-allowed' 
+                : 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-indigo-500/50'
             }`}
           >
-            {loading ? 'Generating Pitch with AI...' : 'Generate Pitch with Gemini'}
+            {loading ? (
+                <div className="flex items-center space-x-3">
+                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    <span>Generating Pitch with AI...</span>
+                </div>
+            ) : (
+                'Generate Pitch'
+            )}
           </button>
           
         </form>
